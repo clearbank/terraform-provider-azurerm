@@ -15473,7 +15473,10 @@ func (client AppsClient) InstallSiteExtensionPreparer(ctx context.Context, resou
 		autorest.AsPut(),
 		autorest.WithBaseURL(client.BaseURI),
 		autorest.WithPathParameters("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/siteextensions/{siteExtensionId}", pathParameters),
-		autorest.WithQueryParameters(queryParameters))
+		autorest.WithQueryParameters(queryParameters),
+		autorest.WithJSON(map[string]interface{}{}),
+		autorest.WithHeader("Content-Type", "application/json"),
+	)
 	return preparer.Prepare((&http.Request{}).WithContext(ctx))
 }
 

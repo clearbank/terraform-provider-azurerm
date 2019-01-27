@@ -13,6 +13,8 @@ import (
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/utils"
 )
 
+var appServiceResourceName = "azurerm_app_service"
+
 func resourceArmAppService() *schema.Resource {
 	return &schema.Resource{
 		Create: resourceArmAppServiceCreate,

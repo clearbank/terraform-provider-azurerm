@@ -162,6 +162,7 @@ func Provider() terraform.ResourceProvider {
 			"azurerm_api_management":                         resourceArmApiManagementService(),
 			"azurerm_app_service_active_slot":                resourceArmAppServiceActiveSlot(),
 			"azurerm_app_service_custom_hostname_binding":    resourceArmAppServiceCustomHostnameBinding(),
+			"azurerm_app_service_extension":                  resourceArmAppServiceExtension(),
 			"azurerm_app_service_plan":                       resourceArmAppServicePlan(),
 			"azurerm_app_service_slot":                       resourceArmAppServiceSlot(),
 			"azurerm_app_service":                            resourceArmAppService(),
