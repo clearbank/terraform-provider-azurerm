@@ -3,17 +3,24 @@
 FEATURES:
 
 * **New Data Source:** `azurerm_availability_set` [GH-2850]
+* **New Data Source:** `azurerm_network_watcher` [GH-2791]
+* **New Resource:** `azurerm_eventgrid_domain` [GH-2884]
+* **New Resource:** `azurerm_lb_outbound_rule` [GH-2912]
+* **New Resource:** `azurerm_network_watcher` [GH-2791]
 
 IMPROVEMENTS:
 
 * dependencies: upgrading to v25.1.0 of `github.com/Azure/azure-sdk-for-go` [GH-2886]
 * dependencies: upgrading to v11.4.0 of `github.com/Azure/go-autorest` [GH-2886]
 * `azurerm_application_gateway` - support for `path` within the `backend_http_settings` block [GH-2879]
+* `azurerm_iothub` - support for the `fallback_route` property [GH-2764]
 * `azurerm_redis_cache` - support for configuring the `maxfragmentationmemory_reserved` in the `redis_configuration` block [GH-2887]
 
 BUG FIXES:
 
 * `azurerm_batch_pool` - updating `max_tasks_per_node` to be ForceNew [GH-2856]
+* `azurerm_key_vault_access_policy` - no longer silenty fails on creation of the `key_vault_id` property is invalid/doesn't exist [GH-2922]
+* `azurerm_redis_firewall_rule` - allowing underscores in the `name` field [GH-2906]
 
 ## 1.22.1 (February 14, 2019)
 

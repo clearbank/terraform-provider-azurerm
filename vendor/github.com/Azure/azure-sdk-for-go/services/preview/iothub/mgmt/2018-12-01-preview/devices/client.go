@@ -1,7 +1,7 @@
-// Package eventgrid implements the Azure ARM Eventgrid service API version 2018-01-01.
+// Package devices implements the Azure ARM Devices service API version 2018-12-01-preview.
 //
-// Azure EventGrid Management Client
-package eventgrid
+// Use this API to manage the IoT hubs in your Azure subscription.
+package devices
 
 // Copyright (c) Microsoft and contributors.  All rights reserved.
 //
@@ -25,11 +25,11 @@ import (
 )
 
 const (
-	// DefaultBaseURI is the default URI used for the service Eventgrid
+	// DefaultBaseURI is the default URI used for the service Devices
 	DefaultBaseURI = "https://management.azure.com"
 )
 
-// BaseClient is the base client for Eventgrid.
+// BaseClient is the base client for Devices.
 type BaseClient struct {
 	autorest.Client
 	BaseURI        string
