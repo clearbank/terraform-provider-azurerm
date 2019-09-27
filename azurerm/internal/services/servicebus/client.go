@@ -7,15 +7,19 @@ import (
 )
 
 type Client struct {
-	QueuesClient            *servicebus.QueuesClient
-	NamespacesClient        *servicebus.NamespacesClient
-	NamespacesClientPreview *servicebusPreview.NamespacesClient
-	TopicsClient            *servicebus.TopicsClient
-	SubscriptionsClient     *servicebus.SubscriptionsClient
-	SubscriptionRulesClient *servicebus.RulesClient
+	DisasterRecoveryConfigsClient *servicebus.DisasterRecoveryConfigsClient
+	QueuesClient                  *servicebus.QueuesClient
+	NamespacesClient              *servicebus.NamespacesClient
+	NamespacesClientPreview       *servicebusPreview.NamespacesClient
+	TopicsClient                  *servicebus.TopicsClient
+	SubscriptionsClient           *servicebus.SubscriptionsClient
+	SubscriptionRulesClient       *servicebus.RulesClient
 }
 
 func BuildClient(o *common.ClientOptions) *Client {
+	DisasterRecoveryConfigsClient := servicebus.NewDisasterRecoveryConfigsClientWithBaseURI(o.ResourceManagerEndpoint, o.SubscriptionId)
+	o.ConfigureClient(&DisasterRecoveryConfigsClient.Client, o.ResourceManagerAuthorizer)
+
 	QueuesClient := servicebus.NewQueuesClientWithBaseURI(o.ResourceManagerEndpoint, o.SubscriptionId)
 	o.ConfigureClient(&QueuesClient.Client, o.ResourceManagerAuthorizer)
 
@@ -35,11 +39,12 @@ func BuildClient(o *common.ClientOptions) *Client {
 	o.ConfigureClient(&SubscriptionRulesClient.Client, o.ResourceManagerAuthorizer)
 
 	return &Client{
-		QueuesClient:            &QueuesClient,
-		NamespacesClient:        &NamespacesClient,
-		NamespacesClientPreview: &NamespacesClientPreview,
-		TopicsClient:            &TopicsClient,
-		SubscriptionsClient:     &SubscriptionsClient,
-		SubscriptionRulesClient: &SubscriptionRulesClient,
+		DisasterRecoveryConfigsClient: &DisasterRecoveryConfigsClient,
+		QueuesClient:                  &QueuesClient,
+		NamespacesClient:              &NamespacesClient,
+		NamespacesClientPreview:       &NamespacesClientPreview,
+		TopicsClient:                  &TopicsClient,
+		SubscriptionsClient:           &SubscriptionsClient,
+		SubscriptionRulesClient:       &SubscriptionRulesClient,
 	}
 }
